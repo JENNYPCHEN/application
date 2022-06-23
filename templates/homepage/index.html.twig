@@ -9,12 +9,21 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/questions/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/questions/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-    </ul>
+<nav class="navbar bg-light m-2 ">
+  <div class="container-fluid">
+    <form class="d-flex " role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+ {% for question in questions %}
+ <div class="bg-light m-2">
+ <h5>Question{{loop.index}}</h5>
+ <p>{{question.question}}</p>
+ <h5>Reponse{{loop.index}}</h5>
+  <p>{{question.answer.answer}}</p>
+  </div>
+  {% endfor%}
 </div>
 {% endblock %}
